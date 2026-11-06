@@ -1,0 +1,43 @@
+# List of all files and directories to be ignored by Git version control.
+################################################################################
+
+########################################
+# Custom
+########################################
+
+*.pop
+
+########################################
+# Editors
+########################################
+
+# Vim
+*.sw?
+
+########################################
+# Python
+########################################
+
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+*.egg
+*.egg-info/
+MANIFEST
+build/
+dist/
+
+# Testing
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+################################################################################

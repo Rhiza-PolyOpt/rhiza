@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rhiza-polyopt"
+version = "0.9.0"
+description = "Polynomial optimization via sparse sample-based quotient-ring sum-of-squares programming"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8.10"
+authors = [
+    {name = "Jason Nezvadovitz"},
+]
+keywords = [
+    "optimization",
+    "polynomial",
+    "quotient",
+    "sparse",
+    "sum-of-squares",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+    "scs>=3.2.7",
+]
+
+[project.optional-dependencies]
+mosek = [
+    "mosek>=10.2.6",
+]
+test = [
+    "pytest>=7",
+    "pytest-cov>=4",
+]
+
+[project.urls]
+Homepage = "https://github.com/Rhiza-PolyOpt"
+Documentation = "https://github.com/Rhiza-PolyOpt/rhiza/blob/main/manual.md"
+Repository = "https://github.com/Rhiza-PolyOpt/rhiza"
+Issues = "https://github.com/Rhiza-PolyOpt/rhiza/issues"
+
+[tool.setuptools.packages.find]
+include = ["rhiza*"]
+
+[tool.setuptools.data-files]
+"." = ["manual.md"]
+
+[tool.pytest.ini_options]
+addopts = "-m 'not mosek'"
+testpaths = ["tests"]
+markers = [
+    "scs: tests that use the SCS backend",
+    "mosek: tests requiring a MOSEK license",
+    "scaling: tests of native performance",
+]
